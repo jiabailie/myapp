@@ -1,8 +1,10 @@
 define remove_containers
+	docker stop $(docker ps -aqf "name=myapp-service") || true && docker rm $(docker ps -aqf "name=myapp-service") || true
+	docker stop $(docker ps -aqf "name=myapp-ui") || true && docker rm $(docker ps -aqf "name=myapp-ui")  || true
 endef
 
 up:
-	docker compose down
+	$(remove_containers)
 	docker compose up -d
 down:
-	docker compose down
+	$(remove_containers)
