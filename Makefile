@@ -1,10 +1,10 @@
-define remove_containers
-	docker stop $(docker ps -aqf "name=myapp-service") || true && docker rm $(docker ps -aqf "name=myapp-service") || true
-	docker stop $(docker ps -aqf "name=myapp-ui") || true && docker rm $(docker ps -aqf "name=myapp-ui")  || true
+define remove_images:
+	docker rmi myapp-ui myapp-service
 endef
-
 up:
-	$(remove_containers)
+	docker compose down
+	$(remove_images)
 	docker compose up -d
 down:
-	$(remove_containers)
+	docker compose down
+	$(remove_images)
