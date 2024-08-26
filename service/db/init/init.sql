@@ -7,5 +7,5 @@ CREATE TABLE IF NOT EXISTS items (
 );
 
 -- Optionally, insert some seed data
-INSERT INTO items (name, price) VALUES ('Sample Item 1', 10.0);
-INSERT INTO items (name, price) VALUES ('Sample Item 2', 20.0);
+INSERT INTO items (name, price) VALUES ('Apple', 10.0);
+INSERT INTO items (name, price) VALUES ('Tomato', 20.0);

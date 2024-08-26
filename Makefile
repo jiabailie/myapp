@@ -1,10 +1,4 @@
-define remove_images:
-	docker rmi myapp-ui myapp-service
-endef
 up:
-	docker compose down
-	$(remove_images)
-	docker compose up -d
+	(docker compose down || true) && (docker rmi myapp-ui myapp-service || true) && docker compose up -d
 down:
-	docker compose down
-	$(remove_images)
+	(docker compose down || true) && (docker rmi myapp-ui myapp-service || true)
