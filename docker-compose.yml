@@ -26,3 +26,10 @@ services:
     volumes:
       - ./service/db/init:/docker-entrypoint-initdb.d/
     restart: on-failure
+  
+  redis:
+    container_name: "redis"
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    restart: on-failure
